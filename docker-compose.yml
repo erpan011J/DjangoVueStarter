@@ -1,33 +1,26 @@
-version: '3'
+# DjangoVueStarter
 
-services:
-  backend:
-    container_name: backend-service
-    build:
-      context: .
-      dockerfile: ./backend/Dockerfile
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-    environment:
-      - DATABASE_URL=postgres://postgres:root@db:5432/postgres
+This is a starter project that combines Django (backend) and Vue.js (frontend) using Docker for easy setup and deployment.
 
-  frontend:
-    container_name: frontend-service
-    build:
-      context: .
-      dockerfile: ./frontend/Dockerfile
-    ports:
-      - "8080:8080"
+## Prerequisites
 
-  db:
-    container_name: postgres-service
-    image: postgres
-    restart: always
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: postgres
+- Docker
+- Docker Compose
+
+## Running the Application
+
+1. **Clone the repository:**
+
+   ```sh
+   git clone https://github.com/yourusername/DjangoVueStarter.git
+   cd DjangoVueStarter
+
+2. **Build and start the Docker containers:**
+
+  ```sh
+   docker-compose up --build
+
+3. **Access the application**
+
+  - Backend (Django): Open your browser and go to http://localhost:8000
+  - Frontend (Vue.js): Open your browser and go to http://localhost:8080
